@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GrantTrack - Applications</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h1>GrantTrack</h1>
+
+        <p>Grant Application Management</p>
+
+    </header>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav">
+
+        <a href="../index.html">
+            Dashboard
+        </a>
+
+        <a href="../faculty/faculty.html">
+            Faculty
+        </a>
+
+        <a href="application.html">
+            Applications
+        </a>
+
+        <a href="../stages/stages.html">
+            Stages
+        </a>
+
+        <a href="../expenditure/expenditure.html">
+            Expenditure
+        </a>
+
+    </nav>
+
+
+
+    <!-- APPLICATION FORM -->
+
+    <div class="card">
+
+        <h2>Add Grant Application</h2>
+
+
+        <form id="applicationForm">
+
+
+            <!-- APPLICATION ID -->
+
+            <label for="id">
+                Application ID
+            </label>
+
+            <input
+                    type="number"
+                    id="id"
+                    placeholder="Enter Application ID"
+                    required
+            >
+
+
+
+            <!-- FACULTY ID -->
+
+            <label for="facultyId">
+                Faculty ID
+            </label>
+
+            <input
+                    type="number"
+                    id="facultyId"
+                    placeholder="Enter Faculty ID"
+                    required
+            >
+
+
+
+            <!-- TITLE -->
+
+            <label for="title">
+                Grant Title
+            </label>
+
+            <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter grant title"
+                    required
+            >
+
+
+
+            <!-- REQUESTED AMOUNT -->
+
+            <label for="requestedAmount">
+                Requested Amount
+            </label>
+
+            <input
+                    type="number"
+                    id="requestedAmount"
+                    placeholder="Enter requested amount"
+                    min="1"
+                    step="0.01"
+                    required
+            >
+
+
+
+            <!-- APPROVED AMOUNT -->
+
+            <label for="approvedAmount">
+                Approved Amount
+            </label>
+
+            <input
+                    type="number"
+                    id="approvedAmount"
+                    placeholder="Enter approved amount"
+                    min="0"
+                    step="0.01"
+                    value="0"
+            >
+
+
+
+            <!-- ABSTRACT -->
+
+            <label for="abstractText">
+                Abstract
+            </label>
+
+            <textarea
+                    id="abstractText"
+                    placeholder="Enter grant abstract"
+                    rows="5"
+                    required
+            ></textarea>
+
+
+
+            <!-- STATUS -->
+
+            <label for="status">
+                Status
+            </label>
+
+            <select id="status">
+
+                <option value="SUBMITTED">
+                    SUBMITTED
+                </option>
+
+                <option value="UNDER_REVIEW">
+                    UNDER REVIEW
+                </option>
+
+                <option value="APPROVED">
+                    APPROVED
+                </option>
+
+                <option value="REJECTED">
+                    REJECTED
+                </option>
+
+            </select>
+
+
+
+            <!-- SUBMISSION DATE -->
+
+            <label for="submissionDate">
+                Submission Date
+            </label>
+
+            <input
+                    type="date"
+                    id="submissionDate"
+            >
+
+
+
+            <!-- UTILIZATION DEADLINE -->
+
+            <label for="utilizationDeadline">
+                Utilization Deadline
+            </label>
+
+            <input
+                    type="date"
+                    id="utilizationDeadline"
+            >
+
+
+
+            <!-- SUBMIT BUTTON -->
+
+            <button
+                    type="submit"
+                    id="submitButton"
+            >
+                Add Application
+            </button>
+
+
+        </form>
+
+
+        <p id="message"></p>
+
+    </div>
+
+
+
+    <!-- APPLICATION LIST -->
+
+    <div class="card">
+
+        <h2>Application List</h2>
+
+
+        <button
+                type="button"
+                onclick="loadApplications()"
+        >
+            Refresh
+        </button>
+
+
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Faculty ID</th>
+
+                <th>Title</th>
+
+                <th>Requested Amount</th>
+
+                <th>Approved Amount</th>
+
+                <th>Status</th>
+
+                <th>Submission Date</th>
+
+                <th>Deadline</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody id="applicationTable">
+
+            </tbody>
+
+        </table>
+
+
+
+        <!-- UPDATE / DELETE BUTTONS -->
+
+        <div class="faculty-actions">
+
+            <button
+                    type="button"
+                    onclick="updateSelectedApplication()"
+            >
+                Update Application
+            </button>
+
+
+            <button
+                    type="button"
+                    class="delete-button"
+                    onclick="deleteSelectedApplication()"
+            >
+                Delete Application
+            </button>
+
+        </div>
+
+
+        <p id="selectionMessage"></p>
+
+    </div>
+
+
+</div>
+
+
+
+<script src="application.js"></script>
+
+</body>
+
+</html>

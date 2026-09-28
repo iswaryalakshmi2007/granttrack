@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GrantTrack - Faculty</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <h1>GrantTrack</h1>
+
+    <p>Faculty Management</p>
+
+  </header>
+
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+
+    <a href="../index.html">
+      Dashboard
+    </a>
+
+    <a href="faculty.html">
+      Faculty
+    </a>
+
+    <a href="../application/application.html">
+      Applications
+    </a>
+
+    <a href="../stages/stages.html">
+      Stages
+    </a>
+
+    <a href="../expenditure/expenditure.html">
+      Expenditure
+    </a>
+
+  </nav>
+
+
+  <!-- ADD / UPDATE FACULTY -->
+  <div class="card">
+
+    <h2>Add Faculty</h2>
+
+    <form id="facultyForm">
+
+
+      <!-- FACULTY ID -->
+
+      <label for="id">
+        Faculty ID
+      </label>
+
+      <input
+              type="number"
+              id="id"
+              placeholder="Enter Faculty ID"
+              required
+      >
+
+
+      <!-- FACULTY NAME -->
+
+      <label for="name">
+        Faculty Name
+      </label>
+
+      <input
+              type="text"
+              id="name"
+              placeholder="Enter faculty name"
+              required
+      >
+
+
+      <!-- EMAIL -->
+
+      <label for="email">
+        Email
+      </label>
+
+      <input
+              type="email"
+              id="email"
+              placeholder="Enter email"
+              required
+      >
+
+
+      <!-- DEPARTMENT -->
+
+      <label for="department">
+        Department
+      </label>
+
+      <input
+              type="text"
+              id="department"
+              placeholder="Enter department"
+              required
+      >
+
+
+      <!-- SUBMIT BUTTON -->
+
+      <button
+              type="submit"
+              id="submitButton"
+      >
+        Add Faculty
+      </button>
+
+    </form>
+
+
+    <p id="message"></p>
+
+  </div>
+
+
+  <!-- FACULTY LIST -->
+
+  <div class="card">
+
+    <h2>Faculty List</h2>
+
+
+    <button
+            type="button"
+            onclick="loadFaculty()"
+    >
+      Refresh
+    </button>
+
+
+    <table>
+
+      <thead>
+
+      <tr>
+
+        <th>ID</th>
+
+        <th>Name</th>
+
+        <th>Email</th>
+
+        <th>Department</th>
+
+      </tr>
+
+      </thead>
+
+
+      <tbody id="facultyTable">
+
+      </tbody>
+
+    </table>
+
+
+    <!-- UPDATE / DELETE BUTTONS -->
+
+    <div class="faculty-actions">
+
+      <button
+              type="button"
+              onclick="updateSelectedFaculty()"
+      >
+        Update Faculty
+      </button>
+
+
+      <button
+              type="button"
+              class="delete-button"
+              onclick="deleteSelectedFaculty()"
+      >
+        Delete Faculty
+      </button>
+
+    </div>
+
+
+    <p id="selectionMessage"></p>
+
+  </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="faculty.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GrantTrack - Stages</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h1>GrantTrack</h1>
+
+        <p>Application Stage Management</p>
+
+    </header>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav">
+
+        <a href="../index.html">
+            Dashboard
+        </a>
+
+        <a href="../faculty/faculty.html">
+            Faculty
+        </a>
+
+        <a href="../application/application.html">
+            Applications
+        </a>
+
+        <a href="stages.html">
+            Stages
+        </a>
+
+        <a href="../expenditure/expenditure.html">
+            Expenditure
+        </a>
+
+    </nav>
+
+
+
+    <!-- STAGE FORM -->
+
+    <div class="card">
+
+        <h2>Add Application Stage</h2>
+
+
+        <form id="stageForm">
+
+
+            <!-- STAGE ID -->
+
+            <label for="id">
+                Stage ID
+            </label>
+
+            <input
+                    type="number"
+                    id="id"
+                    placeholder="Enter Stage ID"
+                    required
+            >
+
+
+
+            <!-- APPLICATION ID -->
+
+            <label for="applicationId">
+                Application ID
+            </label>
+
+            <input
+                    type="number"
+                    id="applicationId"
+                    placeholder="Enter Application ID"
+                    required
+            >
+
+
+
+            <!-- STAGE NAME -->
+
+            <label for="stageName">
+                Stage Name
+            </label>
+
+            <select
+                    id="stageName"
+                    required
+            >
+
+                <option value="">
+                    Select Stage
+                </option>
+
+                <option value="SUBMITTED">
+                    SUBMITTED
+                </option>
+
+                <option value="UNDER_REVIEW">
+                    UNDER REVIEW
+                </option>
+
+                <option value="APPROVED">
+                    APPROVED
+                </option>
+
+                <option value="REJECTED">
+                    REJECTED
+                </option>
+
+            </select>
+
+
+
+            <!-- REMARKS -->
+
+            <label for="remarks">
+                Committee Remarks
+            </label>
+
+            <textarea
+                    id="remarks"
+                    placeholder="Enter committee remarks"
+                    rows="5"
+            ></textarea>
+
+
+
+            <!-- STAGE DATE -->
+
+            <label for="stageDate">
+                Stage Date
+            </label>
+
+            <input
+                    type="date"
+                    id="stageDate"
+            >
+
+
+
+            <!-- SUBMIT BUTTON -->
+
+            <button
+                    type="submit"
+                    id="submitButton"
+            >
+                Add Stage
+            </button>
+
+
+        </form>
+
+
+        <p id="message"></p>
+
+    </div>
+
+
+
+    <!-- STAGE LIST -->
+
+    <div class="card">
+
+        <h2>Stage List</h2>
+
+
+        <button
+                type="button"
+                onclick="loadStages()"
+        >
+            Refresh
+        </button>
+
+
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Application ID</th>
+
+                <th>Stage</th>
+
+                <th>Remarks</th>
+
+                <th>Stage Date</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody id="stageTable">
+
+            </tbody>
+
+        </table>
+
+
+
+        <!-- UPDATE / DELETE -->
+
+        <div class="faculty-actions">
+
+            <button
+                    type="button"
+                    onclick="updateSelectedStage()"
+            >
+                Update Stage
+            </button>
+
+
+            <button
+                    type="button"
+                    class="delete-button"
+                    onclick="deleteSelectedStage()"
+            >
+                Delete Stage
+            </button>
+
+        </div>
+
+
+        <p id="selectionMessage"></p>
+
+    </div>
+
+
+</div>
+
+
+
+<script src="stages.js"></script>
+
+</body>
+
+</html>

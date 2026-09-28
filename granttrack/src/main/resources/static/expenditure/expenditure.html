@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GrantTrack - Expenditure</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h1>GrantTrack</h1>
+
+        <p>Grant Expenditure Management</p>
+
+    </header>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav">
+
+        <a href="../index.html">
+            Dashboard
+        </a>
+
+        <a href="../faculty/faculty.html">
+            Faculty
+        </a>
+
+        <a href="../application/application.html">
+            Applications
+        </a>
+
+        <a href="../stages/stages.html">
+            Stages
+        </a>
+
+        <a href="expenditure.html">
+            Expenditure
+        </a>
+
+    </nav>
+
+
+
+    <!-- EXPENDITURE FORM -->
+
+    <div class="card">
+
+        <h2>Add Expenditure</h2>
+
+
+        <form id="expenditureForm">
+
+
+            <!-- EXPENDITURE ID -->
+
+            <label for="id">
+                Expenditure ID
+            </label>
+
+            <input
+                    type="number"
+                    id="id"
+                    placeholder="Enter Expenditure ID"
+                    required
+            >
+
+
+
+            <!-- APPLICATION ID -->
+
+            <label for="applicationId">
+                Application ID
+            </label>
+
+            <input
+                    type="number"
+                    id="applicationId"
+                    placeholder="Enter Application ID"
+                    required
+            >
+
+
+
+            <!-- DESCRIPTION -->
+
+            <label for="description">
+                Description
+            </label>
+
+            <input
+                    type="text"
+                    id="description"
+                    placeholder="Enter expenditure description"
+                    required
+            >
+
+
+
+            <!-- AMOUNT -->
+
+            <label for="amount">
+                Expenditure Amount
+            </label>
+
+            <input
+                    type="number"
+                    id="amount"
+                    placeholder="Enter expenditure amount"
+                    min="0.01"
+                    step="0.01"
+                    required
+            >
+
+
+
+            <!-- EXPENSE DATE -->
+
+            <label for="expenseDate">
+                Expense Date
+            </label>
+
+            <input
+                    type="date"
+                    id="expenseDate"
+            >
+
+
+
+            <!-- SUBMIT BUTTON -->
+
+            <button
+                    type="submit"
+                    id="submitButton"
+            >
+                Add Expenditure
+            </button>
+
+
+        </form>
+
+
+        <p id="message"></p>
+
+    </div>
+
+
+
+    <!-- EXPENDITURE LIST -->
+
+    <div class="card">
+
+        <h2>Expenditure List</h2>
+
+
+        <button
+                type="button"
+                onclick="loadExpenditures()"
+        >
+            Refresh
+        </button>
+
+
+
+        <table>
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Application ID</th>
+
+                <th>Description</th>
+
+                <th>Amount</th>
+
+                <th>Expense Date</th>
+
+            </tr>
+
+            </thead>
+
+
+            <tbody id="expenditureTable">
+
+            </tbody>
+
+        </table>
+
+
+
+        <!-- UPDATE / DELETE BUTTONS -->
+
+        <div class="faculty-actions">
+
+            <button
+                    type="button"
+                    onclick="updateSelectedExpenditure()"
+            >
+                Update Expenditure
+            </button>
+
+
+            <button
+                    type="button"
+                    class="delete-button"
+                    onclick="deleteSelectedExpenditure()"
+            >
+                Delete Expenditure
+            </button>
+
+        </div>
+
+
+        <p id="selectionMessage"></p>
+
+    </div>
+
+
+</div>
+
+
+
+<script src="expenditure.js"></script>
+
+</body>
+
+</html>

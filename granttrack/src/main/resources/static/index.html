@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GrantTrack - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div>
+            <h1>GrantTrack</h1>
+
+            <p>
+                Research Grant Application Status Tracker
+            </p>
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav class="nav">
+
+        <a href="index.html">
+            Dashboard
+        </a>
+
+        <a href="faculty/faculty.html">
+            Faculty
+        </a>
+
+        <a href="application/application.html">
+            Applications
+        </a>
+
+        <a href="stages/stages.html">
+            Stages
+        </a>
+
+        <a href="expenditure/expenditure.html">
+            Expenditure
+        </a>
+
+    </nav>
+
+
+    <!-- ================= WELCOME ================= -->
+
+    <section class="welcome">
+
+        <h2>
+            Welcome to GrantTrack
+        </h2>
+
+        <p>
+            Manage research grant applications, track application stages,
+            committee remarks and monitor grant expenditures.
+        </p>
+
+    </section>
+
+
+    <!-- ================= DASHBOARD CARDS ================= -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- FACULTY -->
+
+        <div class="dashboard-card">
+
+            <div class="icon">
+                👨‍🏫
+            </div>
+
+            <h2>
+                Faculty
+            </h2>
+
+            <p>
+                Manage faculty members and their department information.
+            </p>
+
+            <a
+                    class="card-button"
+                    href="faculty/faculty.html">
+
+                Manage Faculty
+
+            </a>
+
+        </div>
+
+
+        <!-- APPLICATIONS -->
+
+        <div class="dashboard-card">
+
+            <div class="icon">
+                📄
+            </div>
+
+            <h2>
+                Applications
+            </h2>
+
+            <p>
+                Create and track research grant applications and their status.
+            </p>
+
+            <a
+                    class="card-button"
+                    href="application/application.html">
+
+                View Applications
+
+            </a>
+
+        </div>
+
+
+        <!-- STAGES -->
+
+        <div class="dashboard-card">
+
+            <div class="icon">
+                📊
+            </div>
+
+            <h2>
+                Stages
+            </h2>
+
+            <p>
+                Track submitted, under-review, approved and rejected stages.
+            </p>
+
+            <a
+                    class="card-button"
+                    href="stages/stages.html">
+
+                View Stages
+
+            </a>
+
+        </div>
+
+
+        <!-- EXPENDITURE -->
+
+        <div class="dashboard-card">
+
+            <div class="icon">
+                💰
+            </div>
+
+            <h2>
+                Expenditure
+            </h2>
+
+            <p>
+                Record grant expenses and monitor budget utilization.
+            </p>
+
+            <a
+                    class="card-button"
+                    href="expenditure/expenditure.html">
+
+                Manage Expenditure
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GRANT MONITORING ================= -->
+
+    <section class="monitoring-section">
+
+        <h2>
+            Grant Monitoring
+        </h2>
+
+
+        <!-- SEARCH -->
+
+        <div class="monitoring-search">
+
+            <label for="monitoringApplicationId">
+                Application ID
+            </label>
+
+            <input
+                    type="number"
+                    id="monitoringApplicationId"
+                    placeholder="Enter Application ID"
+                    required
+            >
+
+            <button
+                    type="button"
+                    onclick="loadGrantMonitoring()">
+
+                Check Grant
+
+            </button>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div id="monitoringMessage">
+        </div>
+
+
+        <!-- RESULT CARDS -->
+
+        <div
+                id="monitoringResult"
+                class="monitoring-result"
+        >
+
+
+            <!-- APPLICATION -->
+
+            <div class="monitoring-card">
+
+                <h3>
+                    Application
+                </h3>
+
+                <p id="monitoringTitle">
+                    -
+                </p>
+
+                <span id="monitoringStatus">
+                    -
+                </span>
+
+            </div>
+
+
+            <!-- APPROVED AMOUNT -->
+
+            <div class="monitoring-card">
+
+                <h3>
+                    Approved Amount
+                </h3>
+
+                <p id="approvedAmount">
+                    ₹ 0
+                </p>
+
+            </div>
+
+
+            <!-- TOTAL EXPENDITURE -->
+
+            <div class="monitoring-card">
+
+                <h3>
+                    Total Expenditure
+                </h3>
+
+                <p id="totalExpenditure">
+                    ₹ 0
+                </p>
+
+            </div>
+
+
+            <!-- REMAINING AMOUNT -->
+
+            <div class="monitoring-card">
+
+                <h3>
+                    Remaining Amount
+                </h3>
+
+                <p id="remainingAmount">
+                    ₹ 0
+                </p>
+
+            </div>
+
+
+            <!-- UTILIZATION -->
+
+            <div class="monitoring-card">
+
+                <h3>
+                    Utilization
+                </h3>
+
+                <p id="utilizationPercentage">
+                    0%
+                </p>
+
+                <span id="budgetStatus">
+                    -
+                </span>
+
+            </div>
+
+
+            <!-- DEADLINE -->
+
+            <div class="monitoring-card">
+
+                <h3>
+                    Deadline
+                </h3>
+
+                <p id="utilizationDeadline">
+                    -
+                </p>
+
+                <span id="deadlineStatus">
+                    -
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WORKFLOW ================= -->
+
+    <section class="info-section">
+
+        <h2>
+            GrantTrack Workflow
+        </h2>
+
+
+        <div class="workflow">
+
+
+            <!-- STEP 1 -->
+
+            <div class="workflow-step">
+
+                <span>
+                    1
+                </span>
+
+                <p>
+                    Faculty submits grant application
+                </p>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="workflow-step">
+
+                <span>
+                    2
+                </span>
+
+                <p>
+                    Application goes under review
+                </p>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="workflow-step">
+
+                <span>
+                    3
+                </span>
+
+                <p>
+                    Application is approved or rejected
+                </p>
+
+            </div>
+
+
+            <div class="arrow">
+                →
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="workflow-step">
+
+                <span>
+                    4
+                </span>
+
+                <p>
+                    Approved grant expenditure is tracked
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 GrantTrack |
+            Research Grant Management System
+        </p>
+
+    </footer>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="index.js"></script>
+
+</body>
+
+</html>
